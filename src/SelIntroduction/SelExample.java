@@ -1,9 +1,14 @@
 package SelIntroduction;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SelExample {
 
@@ -29,13 +34,18 @@ public class SelExample {
 		
 		System.setProperty("webdriver.edge.driver", "C:\\Users\\varunkm\\eclipse-workspace\\Introduction\\Drivers\\msedgedriver.exe");
 
-		WebDriver driver2 = new EdgeDriver();
+		WebDriver driver = new EdgeDriver();
 		
-		driver2.get("https://www.makemytrip.com");
+//		driver.get("https://www.makemytrip.com");
 		
-		System.out.println(driver2.getTitle());
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Flipcart")));
 		
-		System.out.println(driver2.getCurrentUrl());
+		driver.findElement(By.linkText("https://makemytrip.com/")).click();
+		
+		System.out.println(driver.getTitle());
+		
+		System.out.println(driver.getCurrentUrl());
 		
 		
 //		driver2.close(); 
