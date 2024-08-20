@@ -77,12 +77,12 @@ public class MakemytripApplication {
         
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         
-        WebElement departureDate = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@aria-label, 'Aug 28 2024')]")));
+        WebElement departureDate = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@aria-label, 'Sep 28 2024')]")));
         new Actions(driver).moveToElement(departureDate).click().perform();
         
         Thread.sleep(3000);
 
-        WebElement returnDate = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@aria-label, 'Aug 30 2024')]")));
+        WebElement returnDate = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@aria-label, 'Sep 30 2024')]")));
         new Actions(driver).moveToElement(returnDate).click().perform();
         
         WebElement travellerOption = driver.findElement(By.xpath("//label[@for='travellers']"));
@@ -126,7 +126,7 @@ public class MakemytripApplication {
         
         driver.get("https://www.makemytrip.com/flight/search?itinerary=BLR-BOM-28/08/2024_BOM-BLR-30/08/2024&tripType=R&paxType=A-2_C-1_I-1&intl=false&cabinClass=PE&ccde=IN&lang=eng");
         
-        driver.get("https://www.makemytrip.com/flight/reviewDetails/?itineraryId=a08b28b8e1f6af4aa5a8c0ccff3775103027598a&crId=938efdfd-ce2a-4404-85f6-9ad10dc23f74&cur=INR&rKey=RKEY:84176275-6692-4d5e-98e8-72084b61a579:12_0~~~RKEY:84176275-6692-4d5e-98e8-72084b61a579:31_0&ccde=IN&xflt=eyJjIjoiUEUiLCJwIjoiQS0yX0MtMV9JLTEiLCJ0IjoiIiwicyI6IkJMUi1CT00tMjAyNDA4MjgkQk9NLUJMUi0yMDI0MDgzMCIsIkl0aW5lcmFyeUlkIjoiQkxSLUJPTS0yOC8wOC8yMDI0X0JPTS1CTFItMzAvMDgvMjAyNCIsIlRyaXBUeXBlIjoiUiIsIlBheFR5cGUiOiJBLTJfQy0xX0ktMSIsIkludGwiOmZhbHNlLCJDYWJpbkNsYXNzIjoiUEUiLCJDY2RlIjoiaW4iLCJQZnQiOiIiLCJQYWZzIjoiIiwiRm9yd2FyZEZsb3dSZXF1aXJlZCI6dHJ1ZSwiQ21wSWQiOiIifQ==");
+        driver.get("https://www.makemytrip.com/flight/reviewDetails/?itineraryId=f2104a3d19b271a31766c51aa399ef357f47f24b&crId=5da89516-d5de-4847-8433-13d0f4e92d9e&cur=INR&rKey=RKEY:cdbd3133-fb26-4571-a401-88c8e2fbcc6f:3_0~~~RKEY:cdbd3133-fb26-4571-a401-88c8e2fbcc6f:34_0&ccde=IN&xflt=eyJjIjoiUEUiLCJwIjoiQS0yX0MtMV9JLTEiLCJ0IjoiIiwicyI6IkJMUi1CT00tMjAyNDA5MjgkQk9NLUJMUi0yMDI0MDkzMCIsIkl0aW5lcmFyeUlkIjoiQkxSLUJPTS0yOC8wOS8yMDI0X0JPTS1CTFItMzAvMDkvMjAyNCIsIlRyaXBUeXBlIjoiUiIsIlBheFR5cGUiOiJBLTJfQy0xX0ktMSIsIkludGwiOmZhbHNlLCJDYWJpbkNsYXNzIjoiUEUiLCJDY2RlIjoiaW4iLCJQZnQiOiIiLCJQYWZzIjoiIiwiRm9yd2FyZEZsb3dSZXF1aXJlZCI6dHJ1ZSwiQ21wSWQiOiIifQ==");
         
         WebElement addLaguage = driver.findElement(By.className("addBtn"));
         addLaguage.click();
@@ -318,13 +318,46 @@ public class MakemytripApplication {
         
         Thread.sleep(3000);
         
-        WebElement skipSeatSelection = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='linkText' and text()='Skip to add-ons']")));
-        skipSeatSelection.click();
+        WebElement bngToMum1 = driver.findElement(By.xpath("(//div[contains(@style, 'rgb(80, 227, 194)')]/span)[1]"));
+        bngToMum1.click();
+        Thread.sleep(2000);
+        
+        WebElement bngToMum2 = driver.findElement(By.xpath("(//div[contains(@style, 'rgb(80, 227, 194)')]/span)[3]"));
+        bngToMum2.click();
+        Thread.sleep(2000);
+        
+        WebElement bngToMum3 = driver.findElement(By.xpath("(//div[contains(@style, 'rgb(80, 227, 194)')]/span)[5]"));
+        bngToMum3.click();
+        Thread.sleep(2000);
+        
+        System.out.println("Seat selected for bangaluru-mumbai");
+        
+        WebElement clickContinue1 = driver.findElement(By.xpath("//div[@id='cta_section']//button[text()='Continue']"));
+        clickContinue1.click();
+        
+        WebElement mumToBng1 = driver.findElement(By.xpath("(//div[@class='seatBlock pointer' and contains(@style, 'background-color: rgb(80, 227, 194);')]/span)[6]"));
+        mumToBng1.click();
+        Thread.sleep(2000);
+        
+        WebElement mumToBng2 = driver.findElement(By.xpath("(//div[@class='seatBlock pointer' and contains(@style, 'background-color: rgb(80, 227, 194);')]/span)[7]"));
+        mumToBng2.click();
+        Thread.sleep(2000);
+        
+        WebElement mumToBng3 = driver.findElement(By.xpath("(//div[@class='seatBlock pointer' and contains(@style, 'background-color: rgb(80, 227, 194);')]/span)[8]"));
+        mumToBng3.click();
+        Thread.sleep(2000);
+        
+        System.out.println("Seat selected for mumbai-bangaluru");
+        
+        WebElement clickContinue2 = driver.findElement(By.xpath("//div[@id='cta_section']//button[text()='Continue']"));
+        clickContinue2.click();
         
         Thread.sleep(3000);
         
         WebElement proceedToPay = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='lato-black button buttonPrimary extraPadBtn fontSize16 appendTop20' and text()='Proceed to pay']")));
         proceedToPay.click();
+        
+        
         
         System.out.println("completed successfully working as expected");
         
